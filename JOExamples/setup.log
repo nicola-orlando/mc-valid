@@ -1,0 +1,8 @@
+asetup MCProd,19.2.5.13.1,here 
+for 344074 and 344066
+
+asetup AtlasProduction,19.2.5.7,here 
+for MadGraphPythia8EvtGenControl_Hplus_LowMass_LO.py
+
+asetup MCProd,19.2.5.13.1
+for MadGraphControl_ttFCNC_NLO.py

@@ -1,0 +1,25 @@
+Generic instructions for generating samples in Athena
+
+***
+EVGEN
+***
+°Setup as 
+setupATLAS
+asetup 19.2.5.1,here  (note that you might need to change release depending on the generator you run, process to simulate..)
+°Run locally as 
+Generate_tf.py --ecmEnergy=13000. --maxEvents=-1 --runNumber=999999 --firstEvent=1 --randomSeed=123456 --outputEVNTFile=EVNT.root --jobConfig=YourAwesomeJO.py
+°Run on the grid as 
+pathena --trf "Generate_tf.py --jobConfig YourAwesomeJO.py --ecmEnergy 13000. --maxEvents -1 --runNumber=999999 --firstEvent=1 --randomSeed %RNDM:1 --outputEVNTFile %OUT.EVNT.root" --outDS user.orlando.gen_test_1 --extFile YourAwesomeJO.py
+(need to add --extFile YourAwesomeJO.py only if your awesome JO is not in the release you are using)
+Example of HBSM JO is 
+https://svnweb.cern.ch/trac/atlasoff/browser/Generators/MC15JobOptions/trunk/share/DSID344xxx/MC15.344066.MadGraphPythia8EvtGen_noallhad_bbH_bbtt_m400.py
+
+***
+TRUTH Derivations (please see here for available derivation https://twiki.cern.ch/twiki/bin/view/AtlasProtected/TruthDAOD)
+***
+°Setup as 
+setupATLAS
+asetup 20.1.8.3,AtlasDerivation,gcc48,here (work for all MC15 at least)
+°Run as 
+Reco_tf.py --inputEVNTFile EVNT.root --outputDAODFile test.pool.root --reductionConf TRUTH0
+
